@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LAN Party Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        #game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #game-board {
+            display: grid;
+            grid-template-columns: repeat(10, 50px);
+            grid-template-rows: repeat(10, 50px);
+            gap: 2px;
+            margin: 20px auto;
+            background-color: #ddd;
+            border: 2px solid #333;
+        }
+        .cell {
+            width: 50px;
+            height: 50px;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        .item {
+            width: 30px;
+            height: 30px;
+            background-color: gold;
+            border-radius: 50%;
+        }
+        .player {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            font-weight: bold;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #scoreboard {
+            margin: 20px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+        #connection-status {
+            margin: 10px;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        .connected {
+            background-color: #a0e0a0;
+        }
+        .disconnected {
+            background-color: #e0a0a0;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>LAN Party Game</h1>
+    <div id="connection-status" class="disconnected">Disconnected</div>
+    
+    <div id="setup">
+        <p>Choose your player name and color:</p>
+        <input type="text" id="player-name" placeholder="Your name" value="Player">
+        <input type="color" id="player-color" value="#ff0000">
+        <button id="host-btn">Host Game</button>
+        <button id="join-btn">Join Game</button>
+    </div>
+    
+    <div id="game-container" style="display: none;">
+        <div id="scoreboard">
+            <h2>Scoreboard</h2>
+            <div id="scores"></div>
+        </div>
+        <div id="game-board"></div>
+        <button id="restart-btn">Restart Game</button>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
